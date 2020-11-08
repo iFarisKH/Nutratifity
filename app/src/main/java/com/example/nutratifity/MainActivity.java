@@ -21,17 +21,22 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
+        getWindow().setExitTransition(null);
 
-        logo = (ImageView) findViewById(R.id.logo);
+        logo = findViewById(R.id.logo);
 
+        new Handler().postDelayed(this::run, DELAY);
+    }
+
+    private void run() {
+        Intent intent = new Intent(MainActivity.this, WelcomeActivity.class);
+        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, Pair.create(logo, "logo_image"));
+        startActivity(intent, options.toBundle());
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(MainActivity.this, WelcomeActivity.class);
-                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, Pair.create(logo, "logo_image"));
-                startActivity(intent, options.toBundle());
                 finish();
             }
-        }, DELAY);
+        }, 2000);
     }
 }
