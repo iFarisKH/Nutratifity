@@ -14,6 +14,8 @@
     <string name="diary">Diary</string>
     <string name="progress">Progress</string>
     <string name="more">more</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello">Hello,</string>
+    <string name="protein">Protein</string>
+    <string name="carb">Carb</string>
+    <string name="fat">Fat</string>
 </resources>

@@ -6,4 +6,9 @@
     <color name="tab_background">#F3F3F3</color>
     <color name="transparent">#00000000</color>
     <color name="green">#13A634</color>
+    <color name="empty_progress">#C4C4C4</color>
+    <color name="green_progress">#62901B</color>
+    <color name="protien">#E13F3F</color>
+    <color name="carb">#909D41</color>
+    <color name="fat">#8197E5</color>
 </resources>
