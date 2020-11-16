@@ -20,7 +20,6 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        getSupportActionBar().hide();
         getWindow().setExitTransition(null);
 
         logo = findViewById(R.id.logo);

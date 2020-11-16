@@ -30,8 +30,6 @@ public class OnBoardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_onboard);
 
-        getSupportActionBar().hide();
-
         getWindow().setEnterTransition(null);
 
         viewPager = findViewById(R.id.slider);

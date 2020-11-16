@@ -1,5 +1,6 @@
 package com.example.nutratifity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -24,8 +25,6 @@ public class InitActivity extends AppCompatActivity implements TabLayout.OnTabSe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_init);
-
-        getSupportActionBar().hide();
 
         tabLayout = findViewById(R.id.tab_init);
         weight = findViewById(R.id.weight_init);
@@ -67,6 +66,9 @@ public class InitActivity extends AppCompatActivity implements TabLayout.OnTabSe
 
     @Override
     public void onClick(View v) {
+
+        Intent intent = new Intent(InitActivity.this, MainActivity.class);
+        startActivity(intent);
 
     }
 
