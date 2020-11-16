@@ -33,7 +33,6 @@ public class OnBoardActivity extends AppCompatActivity {
         getSupportActionBar().hide();
 
         getWindow().setEnterTransition(null);
-        getWindow().setExitTransition(null);
 
         viewPager = findViewById(R.id.slider);
         dotsLayout = findViewById(R.id.dots);

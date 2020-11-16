@@ -3,4 +3,11 @@
     <string name="first_disc">Nutratify is app will help you to track your nitration in ease.</string>
     <string name="second_disc">You can create you or own meal and we will calculated for you.</string>
     <string name="third_disc">It will show detailed information about the food you eat. </string>
+    <string name="cm_kg">CM/KG</string>
+    <string name="lbs_feet">LBS/FEET</string>
+    <string name="please_enter_your_information_to_continue">Please enter your information to continue</string>
+    <string name="weight">Weight</string>
+    <string name="height">Height</string>
+    <string name="goal">Goal</string>
+    <string name="done">Done</string>
 </resources>
