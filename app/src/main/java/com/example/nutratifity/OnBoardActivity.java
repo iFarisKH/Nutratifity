@@ -1,39 +1,39 @@
 package com.example.nutratifity;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-import androidx.core.text.HtmlCompat;
-import androidx.viewpager.widget.ViewPager;
-
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Html;
 import android.util.Pair;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class WelcomeActivity extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.core.text.HtmlCompat;
+import androidx.viewpager.widget.ViewPager;
+
+import com.example.nutratifity.adapter.OnBoardSliderAdapter;
+
+public class OnBoardActivity extends AppCompatActivity {
 
     private ViewPager viewPager;
     private LinearLayout dotsLayout;
-    private SliderAdapter sliderAdapter;
     private Button learnMore;
     private Button skip;
     private ImageView logo;
-    TextView[] dots;
 
     @Override
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_welcome);
+        setContentView(R.layout.activity_onboard);
+
+        getSupportActionBar().hide();
+
         getWindow().setEnterTransition(null);
+        getWindow().setExitTransition(null);
 
         viewPager = findViewById(R.id.slider);
         dotsLayout = findViewById(R.id.dots);
@@ -41,25 +41,38 @@ public class WelcomeActivity extends AppCompatActivity {
         skip = findViewById(R.id.skip);
         logo = findViewById(R.id.logo);
 
-        sliderAdapter = new SliderAdapter(this);
+        OnBoardSliderAdapter onBoardSliderAdapter = new OnBoardSliderAdapter(this);
 
-        viewPager.setAdapter(sliderAdapter);
+        viewPager.setAdapter(onBoardSliderAdapter);
 
         addDots(0);
+
         viewPager.addOnPageChangeListener(changeListener);
+
         learnMore.setOnClickListener(v -> {
             if (learnMore.getText() == "Continue") {
-                Intent intent = new Intent(WelcomeActivity.this, InitActivity.class);
-                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(WelcomeActivity.this, Pair.create(logo, "logo_image"));
+                Intent intent = new Intent(OnBoardActivity.this, InitActivity.class);
+                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(
+                        OnBoardActivity.this,
+                        Pair.create(logo, "logo_image")
+                );
                 startActivity(intent, options.toBundle());
-                finish();
             }
             viewPager.arrowScroll(View.FOCUS_RIGHT);
+        });
+
+        skip.setOnClickListener(v -> {
+            Intent intent = new Intent(OnBoardActivity.this, InitActivity.class);
+            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(
+                    OnBoardActivity.this,
+                    Pair.create(logo, "logo_image")
+            );
+            startActivity(intent, options.toBundle());
         });
     }
 
     private void addDots(int position) {
-        dots = new TextView[3];
+        TextView[] dots = new TextView[3];
         dotsLayout.removeAllViews();
 
         for (int i = 0; i < dots.length; i++) {

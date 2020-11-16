@@ -1,4 +1,4 @@
-package com.example.nutratifity;
+package com.example.nutratifity.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,7 +10,9 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewpager.widget.PagerAdapter;
 
-public class SliderAdapter extends PagerAdapter {
+import com.example.nutratifity.R;
+
+public class OnBoardSliderAdapter extends PagerAdapter {
 
     Context context;
     LayoutInflater layoutInflater;
@@ -21,7 +23,7 @@ public class SliderAdapter extends PagerAdapter {
     };
 
 
-    public SliderAdapter(Context context) {
+    public OnBoardSliderAdapter(Context context) {
         this.context = context;
     }
 
