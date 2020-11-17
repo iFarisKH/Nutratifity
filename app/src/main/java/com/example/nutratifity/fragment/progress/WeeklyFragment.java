@@ -1,4 +1,4 @@
-package com.example.nutratifity.fragment;
+package com.example.nutratifity.fragment.progress;
 
 import android.os.Bundle;
 
@@ -10,12 +10,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.nutratifity.R;
-import com.example.nutratifity.fragment.progress.AllTimeFragment;
-import com.example.nutratifity.fragment.progress.MonthlyFragment;
-import com.example.nutratifity.fragment.progress.WeeklyFragment;
+import com.example.nutratifity.fragment.progress.weekly.WeeklyCurrentFragment;
+import com.example.nutratifity.fragment.progress.weekly.WeeklyPastFragment;
 import com.google.android.material.tabs.TabLayout;
 
-public class ProgressFragment extends Fragment implements TabLayout.OnTabSelectedListener{
+
+public class WeeklyFragment extends Fragment implements TabLayout.OnTabSelectedListener{
 
     private TabLayout tabLayout;
 
@@ -23,17 +23,17 @@ public class ProgressFragment extends Fragment implements TabLayout.OnTabSelecte
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getChildFragmentManager().beginTransaction().replace(
-                R.id.container_time,
-                new WeeklyFragment()
+                R.id.container_weekly_progress,
+                new WeeklyPastFragment()
         ).commit();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_progress, container, false);
+        View view = inflater.inflate(R.layout.fragment_weekly, container, false);
 
-        tabLayout = view.findViewById(R.id.tab_main_progress);
+        tabLayout = view.findViewById(R.id.tab_weekly_progress);
 
         tabLayout.addOnTabSelectedListener(this);
 
@@ -45,17 +45,14 @@ public class ProgressFragment extends Fragment implements TabLayout.OnTabSelecte
         Fragment selectFragment = null;
         switch (tab.getPosition()) {
             case 0:
-                selectFragment = new WeeklyFragment();
+                selectFragment = new WeeklyPastFragment();
                 break;
             case 1:
-                selectFragment = new MonthlyFragment();
-                break;
-            case 2:
-                selectFragment = new AllTimeFragment();
+                selectFragment = new WeeklyCurrentFragment();
                 break;
         }
         getChildFragmentManager().beginTransaction().replace(
-                R.id.container_time,
+                R.id.container_weekly_progress,
                 selectFragment
         ).commit();
     }

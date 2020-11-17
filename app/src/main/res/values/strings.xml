@@ -18,4 +18,10 @@
     <string name="protein">Protein</string>
     <string name="carb">Carb</string>
     <string name="fat">Fat</string>
+    <string name="weekly">Weekly</string>
+    <string name="monthly">Monthly</string>
+    <string name="all_time">All Time</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="past">Past</string>
+    <string name="current">Current</string>
 </resources>

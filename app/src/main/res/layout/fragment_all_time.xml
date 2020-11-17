@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.ProgressFragment">
+    tools:context=".fragment.progress.AllTimeFragment">
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardView"
@@ -17,32 +17,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tab_main_progress"
-            style="@style/AppTheme.TabLayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/all_time"
+            android:textAllCaps="true"
+            android:textColor="@color/black" />
 
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/weekly" />
-
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/monthly" />
-
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/all_time" />
-
-        </com.google.android.material.tabs.TabLayout>
     </com.google.android.material.card.MaterialCardView>
 
     <FrameLayout
-        android:id="@+id/container_time"
+        android:id="@+id/container_all_time_progress"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="10dp"

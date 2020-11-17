@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.ProgressFragment">
+    tools:context=".fragment.progress.WeeklyFragment">
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardView"
@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tab_main_progress"
+            android:id="@+id/tab_weekly_progress"
             style="@style/AppTheme.TabLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -26,23 +26,18 @@
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/weekly" />
+                android:text="@string/past" />
 
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/monthly" />
-
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/all_time" />
+                android:text="@string/current" />
 
         </com.google.android.material.tabs.TabLayout>
     </com.google.android.material.card.MaterialCardView>
 
     <FrameLayout
-        android:id="@+id/container_time"
+        android:id="@+id/container_weekly_progress"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="10dp"
