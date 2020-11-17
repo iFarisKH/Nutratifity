@@ -5,9 +5,9 @@
     android:layout_height="match_parent"
     tools:context=".fragment.progress.weekly.WeeklyPastFragment">
 
-    <TextView
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/past_week_chart"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Past" />
+        android:layout_height="match_parent"/>
 
 </FrameLayout>
