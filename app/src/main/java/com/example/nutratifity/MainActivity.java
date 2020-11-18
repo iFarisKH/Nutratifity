@@ -1,13 +1,12 @@
 package com.example.nutratifity;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-import androidx.fragment.app.Fragment;
-
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import com.example.nutratifity.fragment.DiaryFragment;
 import com.example.nutratifity.fragment.HomeFragment;
@@ -18,7 +17,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     private BottomNavigationView bottomNavigationView;
-    private CardView appBar;
     private TextView title;
 
     @Override
@@ -27,8 +25,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         setContentView(R.layout.activity_main);
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
-        appBar = findViewById(R.id.action_bar);
-        title = appBar.findViewById(R.id.action_bar_title);
+        title = findViewById(R.id.container).findViewById(R.id.action_bar).findViewById(R.id.action_bar_title);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
 
