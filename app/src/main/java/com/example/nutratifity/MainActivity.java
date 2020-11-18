@@ -2,6 +2,9 @@ package com.example.nutratifity;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,11 +16,19 @@ import com.example.nutratifity.fragment.HomeFragment;
 import com.example.nutratifity.fragment.MoreFragment;
 import com.example.nutratifity.fragment.ProgressFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     private BottomNavigationView bottomNavigationView;
     private TextView title;
+    private FloatingActionButton fabAdd, fabFood, fabScale, fabWater;
+    private boolean clicked = false;
+
+    private Animation rotateOpen;
+    private Animation rotateClose;
+    private Animation fromBottom;
+    private Animation toBottom;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,16 +37,63 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         title = findViewById(R.id.container).findViewById(R.id.action_bar).findViewById(R.id.action_bar_title);
+        fabAdd = findViewById(R.id.fab_add);
+        fabFood = findViewById(R.id.container).findViewById(R.id.fab_food);
+        fabScale = findViewById(R.id.container).findViewById(R.id.fab_scale);
+        fabWater = findViewById(R.id.container).findViewById(R.id.fab_water);
+
+        rotateOpen = AnimationUtils.loadAnimation(this, R.anim.rotete_open_anim);
+        rotateClose = AnimationUtils.loadAnimation(this, R.anim.rotate_close_anim);
+        fromBottom = AnimationUtils.loadAnimation(this, R.anim.from_bottom_anime);
+        toBottom = AnimationUtils.loadAnimation(this, R.anim.to_bottom_anim);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
-
 
         getSupportFragmentManager().beginTransaction().replace(
                 R.id.fragment_container,
                 new HomeFragment()
         ).commit();
+
+
+        fabAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onAddButtonClicked();
+            }
+        });
     }
 
+    private void onAddButtonClicked() {
+        setVisibility(clicked);
+        setAnimation(clicked);
+        clicked = !clicked;
+    }
+
+    private void setVisibility(boolean clicked) {
+        if (!clicked) {
+            fabFood.setVisibility(View.VISIBLE);
+            fabScale.setVisibility(View.VISIBLE);
+            fabWater.setVisibility(View.VISIBLE);
+        } else {
+            fabFood.setVisibility(View.GONE);
+            fabScale.setVisibility(View.GONE);
+            fabWater.setVisibility(View.GONE);
+        }
+    }
+
+    private void setAnimation(boolean clicked) {
+        if (!clicked) {
+            fabAdd.startAnimation(rotateOpen);
+            fabFood.startAnimation(fromBottom);
+            fabScale.startAnimation(fromBottom);
+            fabWater.startAnimation(fromBottom);
+        } else {
+            fabAdd.startAnimation(rotateClose);
+            fabFood.startAnimation(toBottom);
+            fabScale.startAnimation(toBottom);
+            fabWater.startAnimation(toBottom);
+        }
+    }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
