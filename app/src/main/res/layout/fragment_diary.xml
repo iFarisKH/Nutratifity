@@ -26,7 +26,7 @@
             android:textSize="36sp" />
 
         <ImageView
-            android:id="@+id/tomorrow"
+            android:id="@+id/yesterday"
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:layout_gravity="center_vertical"
@@ -36,7 +36,7 @@
             android:src="@drawable/ic_baseline_keyboard_arrow_left_24" />
 
         <ImageView
-            android:id="@+id/yesterday"
+            android:id="@+id/tomorrow"
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:layout_gravity="center_vertical|end"
