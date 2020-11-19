@@ -11,5 +11,10 @@
     <color name="protien">#E13F3F</color>
     <color name="carb">#909D41</color>
     <color name="fat">#8197E5</color>
+    <color name="breakfast">#E1546E</color>
+    <color name="lunch">#A23DF2</color>
+    <color name="snack">#62901B</color>
+    <color name="dinner">#6F85D4</color>
+    <color name="water">#E2227E</color>
     <color name="blue">#3352C3</color>
 </resources>
