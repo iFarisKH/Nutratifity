@@ -92,6 +92,7 @@
 
 
             <TextView
+                android:id="@+id/diary_fat_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/varela"
@@ -115,6 +116,7 @@
                 tools:progress="50" />
 
             <TextView
+                android:id="@+id/diary_carb_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/varela"
@@ -138,6 +140,7 @@
                 tools:progress="50" />
 
             <TextView
+                android:id="@+id/diary_protien_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/varela"
@@ -239,6 +242,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/breakfast">
 
                 <LinearLayout
+                    android:id="@+id/breakfast_box"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
