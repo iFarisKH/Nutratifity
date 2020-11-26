@@ -61,23 +61,27 @@
         android:layout_height="65dp">
 
         <TextView
+            android:id="@+id/date_format"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="10dp"
+            android:clickable="true"
+            android:focusable="true"
             android:fontFamily="@font/varela"
             android:text="Date Format"
             android:textColor="@color/black"
             android:textSize="20sp" />
 
         <TextView
+            android:id="@+id/date_format_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="16dp"
             android:layout_marginBottom="5dp"
             android:fontFamily="@font/varela"
-            android:text="Gregorian "
+            android:text="Gregorian"
             android:textSize="16sp" />
 
         <View
@@ -92,6 +96,7 @@
         android:layout_height="65dp">
 
         <TextView
+            android:id="@+id/language"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -102,6 +107,7 @@
             android:textSize="20sp" />
 
         <TextView
+            android:id="@+id/language_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
@@ -163,12 +169,12 @@
     </RelativeLayout>
 
     <TextView
-        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/varela"
-        android:text="Remind me before (MIN):"
+        android:text="Remind me before (MIN)"
         android:textColor="@color/black"
         android:textSize="20sp" />
 
