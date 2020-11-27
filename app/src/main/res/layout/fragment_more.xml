@@ -185,8 +185,17 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="25dp"
         android:stepSize="5"
-        android:value="0"
-        android:valueFrom="0"
+        android:value="5"
+        android:valueFrom="5"
         android:valueTo="20" />
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/varela"
+        android:text="5 MIN"
+        android:textSize="24sp" />
 
 </LinearLayout>

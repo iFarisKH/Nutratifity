@@ -8,15 +8,18 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.nutratifity.R;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.slider.Slider;
 
 public class MoreFragment extends Fragment {
-    private TextView dateFormat, dateFormatValue, language, languageValue;
+    private TextView dateFormat, dateFormatValue, language, languageValue, time;
     private int dateFormatChecked = 0, languageChecked = 0;
     private Button profile;
+    private Slider slider;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -28,7 +31,10 @@ public class MoreFragment extends Fragment {
         language = view.findViewById(R.id.language);
         languageValue = view.findViewById(R.id.language_value);
         profile = view.findViewById(R.id.profile);
+        time = view.findViewById(R.id.time);
+        slider = view.findViewById(R.id.slider);
 
+        slider.addOnSliderTouchListener(touchListener);
 
         dateFormat.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,4 +84,16 @@ public class MoreFragment extends Fragment {
 
         return view;
     }
+
+    private final Slider.OnSliderTouchListener touchListener = new Slider.OnSliderTouchListener() {
+        @Override
+        public void onStartTrackingTouch(@NonNull Slider slider) {
+
+        }
+
+        @Override
+        public void onStopTrackingTouch(@NonNull Slider slider) {
+            time.setText((int) slider.getValue() + " MIN");
+        }
+    };
 }
