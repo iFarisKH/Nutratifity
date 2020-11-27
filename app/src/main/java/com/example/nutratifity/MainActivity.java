@@ -101,6 +101,21 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 dialog.show();
             }
         });
+
+        fabWater.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BottomSheetDialog dialog = new BottomSheetDialog(MainActivity.this);
+                View bottomView = LayoutInflater.from(
+                        getApplicationContext()
+                ).inflate(
+                        R.layout.bottom_water,
+                        (LinearLayout) findViewById(R.id.bottom_water_container)
+                );
+                dialog.setContentView(bottomView);
+                dialog.show();
+            }
+        });
     }
 
     private void onAddButtonClicked() {
