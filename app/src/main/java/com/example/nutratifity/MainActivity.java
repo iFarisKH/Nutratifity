@@ -93,10 +93,10 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                         R.layout.bottom_weight,
                         (LinearLayout) findViewById(R.id.bottom_weight_container)
                 );
-//                TextView date = bottomView.findViewById(R.id.date);
-//                date.setText(
-//                        localDate.getDayOfWeek().name().substring(0, 3) + ", " + localDate.getDayOfMonth() + " " + localDate.getMonth().name()
-//                );
+                TextView date = bottomView.findViewById(R.id.date);
+                date.setText(
+                        localDate.getDayOfWeek().name().substring(0, 3) + ", " + localDate.getDayOfMonth() + " " + localDate.getMonth().name()
+                );
                 dialog.setContentView(bottomView);
                 dialog.show();
             }
