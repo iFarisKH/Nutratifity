@@ -21,6 +21,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.time.LocalDate;
+
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     private BottomNavigationView bottomNavigationView;
@@ -75,6 +77,26 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                         R.layout.bottom_meal,
                         (LinearLayout) findViewById(R.id.bottom_meal_container)
                 );
+                dialog.setContentView(bottomView);
+                dialog.show();
+            }
+        });
+
+        fabScale.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LocalDate localDate = LocalDate.now();
+                BottomSheetDialog dialog = new BottomSheetDialog(MainActivity.this);
+                View bottomView = LayoutInflater.from(
+                        getApplicationContext()
+                ).inflate(
+                        R.layout.bottom_weight,
+                        (LinearLayout) findViewById(R.id.bottom_weight_container)
+                );
+//                TextView date = bottomView.findViewById(R.id.date);
+//                date.setText(
+//                        localDate.getDayOfWeek().name().substring(0, 3) + ", " + localDate.getDayOfMonth() + " " + localDate.getMonth().name()
+//                );
                 dialog.setContentView(bottomView);
                 dialog.show();
             }
