@@ -1,10 +1,12 @@
 package com.example.nutratifity;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,6 +18,7 @@ import com.example.nutratifity.fragment.HomeFragment;
 import com.example.nutratifity.fragment.MoreFragment;
 import com.example.nutratifity.fragment.ProgressFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
@@ -59,6 +62,21 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             @Override
             public void onClick(View v) {
                 onAddButtonClicked();
+            }
+        });
+
+        fabFood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BottomSheetDialog dialog = new BottomSheetDialog(MainActivity.this);
+                View bottomView = LayoutInflater.from(
+                        getApplicationContext()
+                ).inflate(
+                        R.layout.bottom_meal,
+                        (LinearLayout) findViewById(R.id.bottom_meal_container)
+                );
+                dialog.setContentView(bottomView);
+                dialog.show();
             }
         });
     }
