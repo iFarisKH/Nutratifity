@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -15,6 +16,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 public class MoreFragment extends Fragment {
     private TextView dateFormat, dateFormatValue, language, languageValue;
     private int dateFormatChecked = 0, languageChecked = 0;
+    private Button profile;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -25,6 +27,7 @@ public class MoreFragment extends Fragment {
         dateFormatValue = view.findViewById(R.id.date_format_value);
         language = view.findViewById(R.id.language);
         languageValue = view.findViewById(R.id.language_value);
+        profile = view.findViewById(R.id.profile);
 
 
         dateFormat.setOnClickListener(new View.OnClickListener() {
@@ -60,6 +63,16 @@ public class MoreFragment extends Fragment {
                     }
                 });
                 builder.show();
+            }
+        });
+
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().beginTransaction().replace(
+                        R.id.fragment_container,
+                        new ProfileFragment()
+                ).commit();
             }
         });
 
