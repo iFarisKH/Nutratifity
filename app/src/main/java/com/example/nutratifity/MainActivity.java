@@ -1,11 +1,13 @@
 package com.example.nutratifity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     private TextView title;
     private FloatingActionButton fabAdd, fabFood, fabScale, fabWater;
     private boolean clicked = false;
+    private Button breakfast, lunch, dinner, snack;
 
     private Animation rotateOpen;
     private Animation rotateClose;
@@ -77,6 +80,16 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                         R.layout.bottom_meal,
                         (LinearLayout) findViewById(R.id.bottom_meal_container)
                 );
+                breakfast = bottomView.findViewById(R.id.breakfast_meal);
+                lunch = bottomView.findViewById(R.id.lunch_meal);
+                dinner = bottomView.findViewById(R.id.dinner_meal);
+                snack = bottomView.findViewById(R.id.snack_meal);
+
+                breakfast.setOnClickListener(onClick);
+                lunch.setOnClickListener(onClick);
+                dinner.setOnClickListener(onClick);
+                snack.setOnClickListener(onClick);
+
                 dialog.setContentView(bottomView);
                 dialog.show();
             }
@@ -177,4 +190,11 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         ).commit();
         return true;
     }
+
+    private View.OnClickListener onClick = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            startActivity(new Intent(MainActivity.this, AddMealActivity.class));
+        }
+    };
 }
