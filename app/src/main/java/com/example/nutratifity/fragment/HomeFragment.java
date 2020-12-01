@@ -1,15 +1,14 @@
 package com.example.nutratifity.fragment;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.nutratifity.R;
 import com.example.nutratifity.adapter.HomeAdapter;
@@ -59,17 +58,17 @@ public class HomeFragment extends Fragment {
         ));
 
         homeHelpers.add(new HomeHelper(
-                "BREAKFAST",
-                "Egg",
-                "155 cal",
-                "9:00 AM"
+                "LUNCH",
+                "Chicken Breast",
+                "550 cal",
+                "1:00 PM"
         ));
 
         homeHelpers.add(new HomeHelper(
-                "BREAKFAST",
-                "Egg",
-                "155 cal",
-                "9:00 AM"
+                "DINNER",
+                "Steak",
+                "660 cal",
+                "8:00 PM"
         ));
 
         adapter = new HomeAdapter(homeHelpers);

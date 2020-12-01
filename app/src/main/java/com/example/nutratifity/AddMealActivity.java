@@ -1,5 +1,6 @@
 package com.example.nutratifity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -9,10 +10,13 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 public class AddMealActivity extends AppCompatActivity {
 
     private CardView cardView;
     private EditText editText;
+    private FloatingActionButton fabMeal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,8 +25,16 @@ public class AddMealActivity extends AppCompatActivity {
 
         cardView = findViewById(R.id.egg);
         editText = findViewById(R.id.search_field);
+        fabMeal = findViewById(R.id.fab_add_meal);
 
         editText.addTextChangedListener(textWatcher);
+
+        fabMeal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AddMealActivity.this, ReviewMealActivity.class));
+            }
+        });
     }
 
     private final TextWatcher textWatcher = new TextWatcher() {
