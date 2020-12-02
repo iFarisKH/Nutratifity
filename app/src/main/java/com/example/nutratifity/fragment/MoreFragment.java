@@ -1,6 +1,7 @@
 package com.example.nutratifity.fragment;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.example.nutratifity.OnBoardActivity;
 import com.example.nutratifity.R;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.slider.Slider;
@@ -18,7 +20,7 @@ import com.google.android.material.slider.Slider;
 public class MoreFragment extends Fragment {
     private TextView dateFormat, dateFormatValue, language, languageValue, time;
     private int dateFormatChecked = 0, languageChecked = 0;
-    private Button profile;
+    private Button profile, help;
     private Slider slider;
 
     @Override
@@ -31,6 +33,7 @@ public class MoreFragment extends Fragment {
         language = view.findViewById(R.id.language);
         languageValue = view.findViewById(R.id.language_value);
         profile = view.findViewById(R.id.profile);
+        help = view.findViewById(R.id.help);
         time = view.findViewById(R.id.time);
         slider = view.findViewById(R.id.slider);
 
@@ -79,6 +82,15 @@ public class MoreFragment extends Fragment {
                         R.id.fragment_container,
                         new ProfileFragment()
                 ).commit();
+            }
+        });
+
+        help.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), OnBoardActivity.class);
+                intent.putExtra("keyHelp", true);
+                startActivity(intent);
             }
         });
 

@@ -24,6 +24,7 @@ public class OnBoardActivity extends AppCompatActivity {
     private Button learnMore;
     private Button skip;
     private ImageView logo;
+    private boolean help;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,7 @@ public class OnBoardActivity extends AppCompatActivity {
         skip = findViewById(R.id.skip);
         logo = findViewById(R.id.logo);
 
+        help = getIntent().getBooleanExtra("keyHelp", false);
         OnBoardSliderAdapter onBoardSliderAdapter = new OnBoardSliderAdapter(this);
 
         viewPager.setAdapter(onBoardSliderAdapter);
@@ -48,6 +50,24 @@ public class OnBoardActivity extends AppCompatActivity {
 
         learnMore.setOnClickListener(v -> {
             if (learnMore.getText() == "Continue") {
+                if (help) {
+                    startActivity(new Intent(OnBoardActivity.this, MainActivity.class));
+                } else {
+                    Intent intent = new Intent(OnBoardActivity.this, InitActivity.class);
+                    ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(
+                            OnBoardActivity.this,
+                            Pair.create(logo, "logo_image")
+                    );
+                    startActivity(intent, options.toBundle());
+                }
+            }
+            viewPager.arrowScroll(View.FOCUS_RIGHT);
+        });
+
+        skip.setOnClickListener(v -> {
+            if (help) {
+                startActivity(new Intent(OnBoardActivity.this, MainActivity.class));
+            } else {
                 Intent intent = new Intent(OnBoardActivity.this, InitActivity.class);
                 ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(
                         OnBoardActivity.this,
@@ -55,16 +75,6 @@ public class OnBoardActivity extends AppCompatActivity {
                 );
                 startActivity(intent, options.toBundle());
             }
-            viewPager.arrowScroll(View.FOCUS_RIGHT);
-        });
-
-        skip.setOnClickListener(v -> {
-            Intent intent = new Intent(OnBoardActivity.this, InitActivity.class);
-            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(
-                    OnBoardActivity.this,
-                    Pair.create(logo, "logo_image")
-            );
-            startActivity(intent, options.toBundle());
         });
     }
 
