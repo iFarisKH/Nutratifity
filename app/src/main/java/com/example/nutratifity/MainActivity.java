@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     private FloatingActionButton fabAdd, fabFood, fabScale, fabWater;
     private boolean clicked = false;
     private Button breakfast, lunch, dinner, snack;
+    private BottomSheetDialog dialog;
 
     private Animation rotateOpen;
     private Animation rotateClose;
@@ -73,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         fabFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BottomSheetDialog dialog = new BottomSheetDialog(MainActivity.this);
+                dialog = new BottomSheetDialog(MainActivity.this);
                 View bottomView = LayoutInflater.from(
                         getApplicationContext()
                 ).inflate(
@@ -99,7 +101,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             @Override
             public void onClick(View v) {
                 LocalDate localDate = LocalDate.now();
-                BottomSheetDialog dialog = new BottomSheetDialog(MainActivity.this);
+                dialog = new BottomSheetDialog(MainActivity.this);
                 View bottomView = LayoutInflater.from(
                         getApplicationContext()
                 ).inflate(
@@ -110,6 +112,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 date.setText(
                         localDate.getDayOfWeek().name().substring(0, 3) + ", " + localDate.getDayOfMonth() + " " + localDate.getMonth().name()
                 );
+                ImageView done = bottomView.findViewById(R.id.done_weight);
+                done.setOnClickListener(onClick);
                 dialog.setContentView(bottomView);
                 dialog.show();
             }
@@ -118,13 +122,15 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         fabWater.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BottomSheetDialog dialog = new BottomSheetDialog(MainActivity.this);
+                dialog = new BottomSheetDialog(MainActivity.this);
                 View bottomView = LayoutInflater.from(
                         getApplicationContext()
                 ).inflate(
                         R.layout.bottom_water,
                         (LinearLayout) findViewById(R.id.bottom_water_container)
                 );
+                ImageView done = bottomView.findViewById(R.id.done_water);
+                done.setOnClickListener(onClick);
                 dialog.setContentView(bottomView);
                 dialog.show();
             }
@@ -194,7 +200,15 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     private View.OnClickListener onClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            startActivity(new Intent(MainActivity.this, AddMealActivity.class));
+            switch (v.getId()) {
+                case R.id.done_weight:
+                case R.id.done_water:
+                    dialog.dismiss();
+                    break;
+                default:
+                    startActivity(new Intent(MainActivity.this, AddMealActivity.class));
+            }
+
         }
     };
 }
