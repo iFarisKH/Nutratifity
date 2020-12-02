@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -20,9 +21,10 @@ import java.util.ArrayList;
 public class HomeFragment extends Fragment {
 
     private final LocalDate LOCAL_DATE = LocalDate.now();
-    private TextView todayDate;
+    private TextView todayDate, calLeft;
     private RecyclerView homeRecycle;
     private RecyclerView.Adapter adapter;
+    private ProgressBar protein, carb, fat, cal;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -31,6 +33,11 @@ public class HomeFragment extends Fragment {
 
         todayDate = view.findViewById(R.id.today_date);
         homeRecycle = view.findViewById(R.id.recycle_home);
+        protein = view.findViewById(R.id.progress_protien);
+        carb = view.findViewById(R.id.progress_carb);
+        fat = view.findViewById(R.id.progress_fat);
+        cal = view.findViewById(R.id.progress_cal);
+        calLeft = view.findViewById(R.id.cal_left);
 
         setTodayDate();
         homeRecycle();
@@ -71,7 +78,14 @@ public class HomeFragment extends Fragment {
                 "8:00 PM"
         ));
 
-        adapter = new HomeAdapter(homeHelpers);
+        adapter = new HomeAdapter(
+                homeHelpers,
+                protein,
+                carb,
+                fat,
+                cal,
+                calLeft
+        );
 
         homeRecycle.setAdapter(adapter);
 

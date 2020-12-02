@@ -49,6 +49,7 @@
                 android:layout_height="200dp"
                 android:layout_marginTop="20dp"
                 android:indeterminateOnly="false"
+                android:max="2045"
                 android:progressDrawable="@drawable/cal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -56,11 +57,12 @@
                 tools:progress="50" />
 
             <TextView
+                android:id="@+id/cal_left"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/varela"
                 android:gravity="center"
-                android:text="2000\nCalories left"
+                android:text="2045\nCalories left"
                 android:textColor="@color/green"
                 app:layout_constraintBottom_toBottomOf="@+id/progress_cal"
                 app:layout_constraintEnd_toEndOf="@+id/progress_cal"
@@ -95,6 +97,7 @@
                     android:layout_height="10dp"
                     android:layout_gravity="end"
                     android:indeterminateOnly="false"
+                    android:max="125"
                     android:progressDrawable="@drawable/protien"
                     tools:progress="50" />
 
@@ -103,7 +106,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
                     android:fontFamily="@font/varela"
-                    android:text="112g"
+                    android:text="125g"
                     android:textColor="@color/protien" />
 
                 <TextView
@@ -123,6 +126,7 @@
                     android:layout_height="10dp"
                     android:layout_gravity="end"
                     android:indeterminateOnly="false"
+                    android:max="273"
                     android:progressDrawable="@drawable/carb"
                     tools:progress="50" />
 
@@ -131,7 +135,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
                     android:fontFamily="@font/varela"
-                    android:text="112g"
+                    android:text="273g"
                     android:textColor="@color/carb" />
 
                 <TextView
@@ -151,6 +155,7 @@
                     android:layout_height="10dp"
                     android:layout_gravity="end"
                     android:indeterminateOnly="false"
+                    android:max="58"
                     android:progressDrawable="@drawable/fat"
                     tools:progress="50" />
 
@@ -159,7 +164,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
                     android:fontFamily="@font/varela"
-                    android:text="112g"
+                    android:text="58g"
                     android:textColor="@color/fat" />
 
             </LinearLayout>
